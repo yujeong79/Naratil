@@ -1,0 +1,47 @@
+version: "3"
+services:
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+    environment:
+      - CLUSTER_NAME=test
+    volumes:
+      - namenode:/hadoop/dfs/name
+    ports:
+      - "9870:9870"   # HDFS UI
+      - "8020:8020"   # HDFS access
+    networks:
+      - hadoopnet
+
+  datanode:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+    volumes:
+      - datanode:/hadoop/dfs/data
+    depends_on:
+      - namenode
+    networks:
+      - hadoopnet
+
+  spark:
+    build: ./spark
+    volumes:
+      - .:/app/scripts       # 전체 BigData 폴더를 컨테이너에 mount
+    env_file:
+      - .env
+    depends_on:
+      - namenode
+      - datanode
+    environment:
+      - SPARK_MODE=client
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+      - PYTHONPATH=/app/scripts
+    networks:
+      - hadoopnet
+
+volumes:
+  namenode:
+  datanode:
+
+networks:
+  hadoopnet:

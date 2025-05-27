@@ -1,0 +1,35 @@
+# API 요청 및 비동기
+requests
+aiohttp
+
+# 데이터 처리
+pandas
+
+# Apache Spark
+pyspark
+
+# HDFS 클라이언트
+hdfs
+
+# 문장 수준의 임베딩/유사도 계산을 위한 고성능 모델 (transformers 기반)
+sentence-transformers==4.0.1
+transformers==4.41.2
+torch==2.2.2
+accelerate==0.27.2
+huggingface-hub==0.23.3
+
+# 머신러닝 알고리즘 및 데이터 전처리 기능 제공 (classification, regression 등)
+scikit-learn
+
+# 과학 계산용 핵심 패키지 (벡터/행렬 연산 등 수학 연산 지원)
+numpy<2
+
+# Spark와 Python 간 데이터를 효율적으로 주고받기 위한 포맷 (Arrow 포맷 사용)
+pyarrow
+
+# 원격 SSH 서버와 터널링을 통해 DB나 API에 연결할 수 있게 해주는 라이브러리
+sshtunnel
+
+pymongo
+
+

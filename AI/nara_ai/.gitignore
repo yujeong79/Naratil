@@ -1,0 +1,29 @@
+# Python bytecode files
+*.pyc
+*.pyo
+__pycache__
+
+# Virtual environments
+venv/
+env/
+
+# FastAPI specific
+*.db
+*.sqlite3
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Model
+models/.locks/
+models/models--jhgan--ko-sbert-sts/
+
+*.iml
+*.xml
+
+# 로깅
+logs/
+
+# env
+.env

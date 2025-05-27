@@ -1,0 +1,40 @@
+package com.naratil.bid.dto;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.List;
+
+public record BidDetailRequestDto(
+        Long bidNtceId,
+        String ntceKindNm,
+        String bidNtceNo,
+        String bidNtceOrd,
+        String bidNtceNm,
+        String bsnsDivNm,
+        String cntrctCnclsMthdNm,
+        LocalDateTime bidNtceDt,
+        LocalDateTime bidBeginDt,
+        LocalDateTime bidClseDt,
+        LocalDateTime opengDt,
+        String prtcptPsblRgnNm,
+        String indstrytyNm,
+        String indstrytyCd,
+        String ntceInsttNm,
+        String dminsttNm,
+        Long presmptPrce,
+        Long bssamt,
+        String prearngPrceDcsnMthdNm,
+        BigDecimal rsrvtnPrceRngBgnRate,
+        BigDecimal rsrvtnPrceRngEndRate,
+        BigDecimal sucsfbidLwltRate,
+        String ntceInsttOfclNm,
+        String ntceInsttOfclTelNo,
+        LocalDateTime dcmtgOprtnDt,
+        String dcmtgOprtnPlace,
+        String bidNtceDtlUrl,
+        Boolean isUpdated,
+        LocalDateTime createdAt,
+        LocalDateTime updatedAt,
+        List<String> keywords,
+        List<SimilarBidDto> similarNtces
+) {}

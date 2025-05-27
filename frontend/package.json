@@ -1,0 +1,41 @@
+{
+    "name": "naratil",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "eslint . --fix",
+        "format": "prettier --write src/"
+    },
+    "dependencies": {
+        "@tailwindcss/line-clamp": "^0.4.4",
+        "axios": "^1.8.4",
+        "chart.js": "^4.4.8",
+        "dayjs": "^1.11.13",
+        "pinia": "^2.3.1",
+        "primeicons": "^7.0.0",
+        "primevue": "^4.3.3",
+        "tailwindcss-primeui": "^0.6.1",
+        "vue": "^3.5.13",
+        "vue-router": "^4.5.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.18.0",
+        "@primevue/auto-import-resolver": "^4.3.3",
+        "@vitejs/plugin-vue": "^5.2.1",
+        "@vue/eslint-config-prettier": "^10.1.0",
+        "autoprefixer": "^10.4.21",
+        "eslint": "^9.18.0",
+        "eslint-plugin-vue": "^9.32.0",
+        "postcss": "^8.5.3",
+        "postcss-import": "^16.1.0",
+        "prettier": "^3.4.2",
+        "tailwindcss": "^3.4.17",
+        "unplugin-vue-components": "^28.4.1",
+        "vite": "^6.0.11",
+        "vite-plugin-vue-devtools": "^7.7.0"
+    }
+}

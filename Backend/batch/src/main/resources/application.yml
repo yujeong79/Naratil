@@ -1,0 +1,81 @@
+spring:
+  application:
+    name: Naratil Batch
+
+  batch:
+    jdbc:
+      initialize-schema: never  # 스프링 배치 초기화 정책
+    job:
+      enabled: false             # 자동 배치 실행 비활성화
+
+  datasource:
+    batch:
+      jdbc-url: jdbc:mysql://3.36.76.231:3308/batchdb?useSSL=false&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+      username: myuser
+      password: mypassword
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+    business:
+      jdbc-url: jdbc:mysql://3.36.76.231:3307/apidb?useSSL=false&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+      username: myuser
+      password: mypassword
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  data:
+    mongodb:
+      uri: mongodb://3.36.76.231:27017/naratil
+      database: naratil
+
+public-data-api:
+#  service-key: JVKsNwUuO8MwiXsdGgfzudKwGbMCxGQDlytz6wR5EyeMs/Ud4jddXTEWPOvmXfH0ZK23O59aB4oOO2GPfECrFA==
+  service-key: Yc1sqYmFYTOaFpM5Z7/LBwgIyJnyLUXZY/Z2x6qrA+K00x5ohHijdSJsNNWfYrO44CL2xkkWMykdCYnJRbwLYg==
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    display-request-duration: true
+  packages-to-scan: com.naratil.batch.controller
+
+
+# FAST API
+fastapi:
+#  base-url: http://localhost:8000/batch/fastapi
+  base-url: http://3.36.76.231:8000/batch/fastapi
+  api:
+    industry-vector: /embedding/industry_vectors
+    ntce-vector: /embedding/ntce_vectors
+    ntce-similarity: /similarity/ntces
+    ntce-recommend: /recommend/ntces
+
+
+logging:
+  level:
+    sun:
+      rmi: warn
+    javax:
+      management: warn
+    org.springframework.jdbc.core: ERROR
+    org.springframework.jdbc.datasource: ERROR
+    org.mongodb.drive.cluster: ERROR
+    com.zaxxer.hikari.pool.HikariPool: ERROR
+    o.s.d.mongodb.MongoTransactionManager: ERROR
+    org.springframework.batch: INFO
+    root: INFO
+#  file:
+#    name: logs/batch.log
+
+server:
+  port: 8081
+  tomcat:
+    apr:
+      enabled: false
